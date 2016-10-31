@@ -144,8 +144,8 @@ public class MainApp extends Application {
 
 			primaryStage.setX(bounds.getMinX());
 			primaryStage.setY(bounds.getMinY());
-			primaryStage.setWidth(bounds.getWidth()-100);
-			primaryStage.setHeight(bounds.getHeight()-100);
+			primaryStage.setWidth(bounds.getWidth());
+			primaryStage.setHeight(bounds.getHeight());
 			
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
@@ -249,6 +249,12 @@ public class MainApp extends Application {
 				if (message instanceof String)
 				{				
 					System.out.println("Message Received " + message);
+				}
+				else if (message instanceof Table)
+				{
+					//TODO: If the message is a Table, run the 
+					//		method Handle_TableState in the 
+					//		pokerController.
 				}
 				pokerController.MessageFromMainApp((String)message);
 			});

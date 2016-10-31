@@ -54,6 +54,15 @@ public class PokerHub extends Hub {
 			//TODO: If the Action = StartGame, start the game...
 			//		Create an instance of GamePlay, set all the parameters
 			
+			//TODO: If Action = Sit, add the player to the table
+			
+			//TODO: If Action = Leave, remove the player from the table
+			
+			//TODO: If Action = Sit or Leave, send the Table
+			//		back to the client
+			
+			//TODO: If Action = GameState, send HubGamePlay 
+			//		back to the client
 		}
 
 		System.out.println("Message Received by Hub");

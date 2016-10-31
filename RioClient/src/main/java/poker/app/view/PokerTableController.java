@@ -1,8 +1,12 @@
 package poker.app.view;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -18,7 +22,7 @@ import pokerBase.Table;
 import pokerEnums.eAction;
 import pokerEnums.ePlayerPosition;
 
-public class PokerTableController {
+public class PokerTableController implements Initializable {
 
 	// Reference to the main application.
 	private MainApp mainApp;
@@ -75,15 +79,15 @@ public class PokerTableController {
 	@FXML
 	private HBox hboxP4Cards;
 
-	@FXML
-	private void initialize() {
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 		imgViewDealerButtonPos3.setVisible(true);
-		imgViewDealerButtonPos4.setVisible(true);
+		imgViewDealerButtonPos4.setVisible(true);		
 	}
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-
 	}
 
 	@FXML
@@ -118,13 +122,13 @@ public class PokerTableController {
 			iPlayerPosition = 0;
 		}
 
-		// TODO: Set the player position
+		//	Set the PlayerPosition in the Player
 		mainApp.getPlayer().setiPlayerPosition(iPlayerPosition);
 
-		// TODO: Create an 'Action object for Sit/Leave & Player
+		//	Build an Action message
 		Action act = new Action(btnSitLeave.isSelected() ? eAction.Sit : eAction.Leave, mainApp.getPlayer());
 
-		// TODO: Send the Action to the Hub
+		// Send the Action to the Hub
 		mainApp.messageSend(act);
 	}
 
@@ -134,6 +138,20 @@ public class PokerTableController {
 
 	public void Handle_TableState(Table HubPokerTable) {
 
+		//TODO: If this message is called, that means there
+		//		was a change to the state of the Table (player
+		//		probably ran 'sit' or 'leave'
+		//		The Table was updated, you just have to refresh the
+		//		UI controls to show the current state of the 
+		//		Table object
+		
+		//TODO: run the 'getHashPlayers' method, iterate 
+		//		for all players and update the player label
+		//		and state of the sit/leave button.
+
+		//		Example: Joe sits at Position 1
+		//		Joe should see the 'Sit' button in position 1 in the
+		//		'pressed in' state, and with 
 	}
 
 	@FXML
@@ -213,5 +231,6 @@ public class PokerTableController {
 
 		ft.play();
 	}
+
 
 }
