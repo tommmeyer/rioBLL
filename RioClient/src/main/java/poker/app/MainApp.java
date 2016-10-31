@@ -84,7 +84,7 @@ public class MainApp extends Application {
 		this.primaryStage.setTitle("Poker");
 
 		// Set the application icon.
-		this.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/26.png")));
+		//this.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/26.png")));
 
 		this.primaryStage.setScene(scene);
 		this.primaryStage.show();
