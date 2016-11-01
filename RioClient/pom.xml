@@ -58,8 +58,8 @@
 
 		<dependency>
 			<groupId>edu.ud.cis.cisc181</groupId>
-			<artifactId>LuxorBLL</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>RioBLL</artifactId>
+			<version>0.0.1-SNAPSHOT</version>			
 			<scope>compile</scope>
 		</dependency>
 
