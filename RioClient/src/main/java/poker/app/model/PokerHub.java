@@ -10,6 +10,7 @@ import java.util.Map;
 
 import exceptions.DeckException;
 import netgame.common.Hub;
+import poker.app.MainApp;
 import pokerBase.Action;
 import pokerBase.Card;
 import pokerBase.CardDraw;
@@ -25,12 +26,14 @@ import pokerEnums.eDrawCount;
 import pokerEnums.eGame;
 import pokerEnums.eGameState;
 
+
 public class PokerHub extends Hub {
 
 	private Table HubPokerTable = new Table();
 	private GamePlay HubGamePlay;
 	private int iDealNbr = 0;
 	private eGameState eGameState;
+	private MainApp mainApp;
 
 	public PokerHub(int port) throws IOException {
 		super(port);
@@ -47,22 +50,31 @@ public class PokerHub extends Hub {
 		shutDownHub();
 	}
 
+	public void setMainApp(MainApp mainApp){
+		this.mainApp=mainApp;
+	}
+	
 	protected void messageReceived(int ClientID, Object message) {
 
 		if (message instanceof Action) {
 			
 			//TODO: If the Action = StartGame, start the game...
-			//		Create an instance of GamePlay, set all the parameters
+			//		Create an instance of GamePlay, set all the parameter
+			if (message == eAction.StartGame){
+				GamePlay newGame = new GamePlay(mainApp.getGameRule(),mainApp.getPlayer().getPlayerID());
+			}
 			
-			//TODO: If Action = Sit, add the player to the table
-			
-			//TODO: If Action = Leave, remove the player from the table
-			
-			//TODO: If Action = Sit or Leave, send the Table
-			//		back to the client
-			
-			//TODO: If Action = GameState, send HubGamePlay 
-			//		back to the client
+			else if (message == eAction.Sit){
+				HubPokerTable.AddPlayerToTable(mainApp.getPlayer());
+				sendToAll(HubPokerTable);
+			}
+			else if (message == eAction.Leave){
+				HubPokerTable.RemovePlayerFromTable(mainApp.getPlayer());
+				sendToAll(HubPokerTable);
+			}
+			else if (message == eAction.GameState){
+				sendToAll(HubGamePlay);
+			}
 		}
 
 		System.out.println("Message Received by Hub");

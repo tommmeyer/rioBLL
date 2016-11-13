@@ -33,8 +33,10 @@ import poker.app.view.RootLayoutController;
 import pokerBase.Action;
 import pokerBase.GamePlay;
 import pokerBase.Player;
+import pokerBase.Rule;
 import pokerBase.Table;
 import pokerEnums.eAction;
+import pokerEnums.eGame;
 
 public class MainApp extends Application {
 
@@ -50,7 +52,26 @@ public class MainApp extends Application {
 	private boolean isServer = false;
 
 	private Player appPlayer;
+	
+	private Rule gameRule = new Rule(eGame.FiveStud);
+	
+	private String betRule = "No Limit";
+	
+	
+	
 
+	public String getBetRule() {
+		return betRule;
+	}
+	public void setBetRule(String betRule) {
+		this.betRule = betRule;
+	}
+	public Rule getGameRule() {
+		return gameRule;
+	}
+	public void setGameRule(eGame eGameRule ) {
+		this.gameRule = new Rule(eGameRule);
+	}
 	public int GetPlayerID()
 	{
 		return pClient.getID();
@@ -252,9 +273,7 @@ public class MainApp extends Application {
 				}
 				else if (message instanceof Table)
 				{
-					//TODO: If the message is a Table, run the 
-					//		method Handle_TableState in the 
-					//		pokerController.
+					pokerController.Handle_TableState((Table)message);
 				}
 				pokerController.MessageFromMainApp((String)message);
 			});

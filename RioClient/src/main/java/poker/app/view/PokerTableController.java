@@ -156,9 +156,8 @@ public class PokerTableController implements Initializable {
 
 	@FXML
 	void btnStart_Click(ActionEvent event) {
-		// Start the Game
-		//TODO: Create an instance of Action, Action = StartGame
-		//		Send the message to the hub
+		Action act = new Action(eAction.StartGame, mainApp.getPlayer());
+		mainApp.messageSend(act);
 	}
 
 	@FXML

@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="650.0" prefWidth="850.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.RootLayoutController">
+<BorderPane prefHeight="650.0" prefWidth="850.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.RootLayoutController">
    <top>
       <MenuBar fx:id="mb" prefHeight="0.0" prefWidth="1064.0">
         <menus>
+            <Menu mnemonicParsing="false" text="Rules">
+              <items>
+                  <Menu mnemonicParsing="false" text="Betting ">
+                     <items>
+                        <RadioMenuItem mnemonicParsing="true" onAction="#handleNoLimit" selected="true" text="No Limit">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="bet" />
+                           </toggleGroup></RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handlePotLimit" text="Pot Limit" toggleGroup="$bet" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Game Play">
+                    <items>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleFiveCardStud" selected="true" text="Five Card Stud">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="game" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleFiveStudOneJoker" text="Five Card Stud One Joker" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleFiveStudTwoJoker" text="FIve Card Stud 2 Jokers" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleHoldEm" text="Texas Hold 'em" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleOmaha" text="Omaha" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleSuperOmaha" text="Super Omaha" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleSevenDraw" text="Seven Card Draw" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleDuecesWild" text="Dueces Wild" toggleGroup="$game" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#handleAcesAndEights" text="Aces and Eights" toggleGroup="$game" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />

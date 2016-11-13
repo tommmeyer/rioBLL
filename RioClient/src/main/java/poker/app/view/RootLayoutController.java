@@ -110,19 +110,54 @@ public class RootLayoutController implements Initializable {
 		
 		mnuBet.getItems().add(rmi1);
 		mnuBet.getItems().add(rmi2);
-		
-		//	TODO - Lab #5...  Add a new menu item that will display the betting rules...
-		//	Two choices:
-		//	No Limit (set this as default)
-		//	Pot Limit (this is NOT the default)
-		//	Group them together with a Toggle Group
-		//	Write a method to return which is selected.. .check out getRuleName()
 
 	}
-    
+	@FXML
+	private void handleNoLimit(){
+		mainApp.setBetRule("No Limit");
+	}
+	@FXML
+	private void handlePotLimit(){
+		mainApp.setBetRule("Pot Limit");
+	}
 	
 	
-	
+	@FXML
+	private void handleFiveCardStud(){
+		mainApp.setGameRule(eGame.FiveStud);
+	}
+	@FXML
+	private void handleAcesAndEights(){
+		mainApp.setGameRule(eGame.AcesAndEights);
+	}
+	@FXML
+	private void handleDuecesWild(){
+		mainApp.setGameRule(eGame.DeucesWild);
+	}
+	@FXML
+	private void handleFiveStudOneJoker(){
+		mainApp.setGameRule(eGame.FiveStudOneJoker);
+	}
+	@FXML
+	private void handleFiveStudTwoJoker(){
+		mainApp.setGameRule(eGame.FiveStudTwoJoker);
+	}
+	@FXML
+	private void handleOmaha(){
+		mainApp.setGameRule(eGame.Omaha);
+	}
+	@FXML
+	private void handleSevenDraw(){
+		mainApp.setGameRule(eGame.SevenDraw);
+	}
+	@FXML
+	private void handleSuperOmaha(){
+		mainApp.setGameRule(eGame.SuperOmaha);
+	}
+	@FXML
+	private void handleHoldEm(){
+		mainApp.setGameRule(eGame.TexasHoldEm);
+	}
 	
 	
 	
