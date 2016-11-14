@@ -159,14 +159,14 @@ public class PokerTableController implements Initializable {
 			if (playerOne != null){
 				lblPos1Name.setText(playerOne.getPlayerName());
 				int playerOneID = playerOne.getiPokerClientID();
-				this.btnPos1SitLeave.setVisible(false);
+				btnPos1SitLeave.setVisible(false);
 				sendToAll(this);
 				if(true){
 					this.btnPos1SitLeave.setText("Leave");
 					this.btnPos2SitLeave.setVisible(false);
 					this.btnPos3SitLeave.setVisible(false);
 					this.btnPos4SitLeave.setVisible(false);
-					this.sendToOne(playerOneID, (Object)this);	
+					sendToOne(playerOneID, (Object)this);	
 				}
 			}
 			else{
@@ -184,7 +184,7 @@ public class PokerTableController implements Initializable {
 					this.btnPos1SitLeave.setVisible(false);
 					this.btnPos3SitLeave.setVisible(false);
 					this.btnPos4SitLeave.setVisible(false);
-					this.sendToOne(playerTwoID, (Object)this);	
+					sendToOne(playerTwoID, (Object)this);	
 				}
 			}
 			else{
@@ -201,7 +201,7 @@ public class PokerTableController implements Initializable {
 					this.btnPos2SitLeave.setVisible(false);
 					this.btnPos1SitLeave.setVisible(false);
 					this.btnPos4SitLeave.setVisible(false);
-					this.sendToOne(playerThreeID, (Object)this);	
+					sendToOne(playerThreeID, (Object)this);	
 				}
 			}
 			else{
