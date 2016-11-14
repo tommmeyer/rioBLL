@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane fx:id="OuterBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1006.0" style="-fx-background-color: green;" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.PokerTableController">
+<BorderPane fx:id="OuterBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1006.0" style="-fx-background-color: green;" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.PokerTableController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="144.0" prefWidth="879.0" style="-fx-background-color: green;" BorderPane.alignment="BOTTOM_CENTER">
          <children>
@@ -65,6 +71,7 @@
                         </FlowPane>
                      </children>
                   </HBox>
+                  <Label fx:id="lblPos1Name" text="Label" />
                </children>
             </GridPane>
          </children>
@@ -135,6 +142,7 @@
                               <Button id="btnPlayer1Fold" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" prefWidth="80.0" text="Raise" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Button maxWidth="100.0" mnemonicParsing="false" prefWidth="80.0" text="Bet" GridPane.rowIndex="2" />
                               <Button id="btnPlayer2Check" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#btnCheck_Click" prefWidth="93.0" text="Check" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lblPos4Name" text="Label" />
                            </children>
                         </GridPane>
                      </children>
@@ -195,6 +203,7 @@
                               <Button id="btnPlayer1Fold" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" prefWidth="80.0" text="Raise" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Button maxWidth="100.0" mnemonicParsing="false" prefWidth="80.0" text="Bet" GridPane.rowIndex="2" />
                               <Button id="btnPlayer4Check" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#btnCheck_Click" prefWidth="93.0" text="Check" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lblPos2Name" text="Label" />
                            </children>
                         </GridPane>
                      </children>
@@ -280,6 +289,7 @@
                         </FlowPane>
                      </children>
                   </HBox>
+                  <Label fx:id="lblPos3Name" text="Label" />
                </children>
             </GridPane>
          </children>

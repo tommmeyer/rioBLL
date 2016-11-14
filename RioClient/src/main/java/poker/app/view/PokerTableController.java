@@ -18,9 +18,12 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import poker.app.MainApp;
 import pokerBase.Action;
+import pokerBase.Player;
 import pokerBase.Table;
 import pokerEnums.eAction;
 import pokerEnums.ePlayerPosition;
+import netgame.common.Hub;
+
 
 public class PokerTableController implements Initializable {
 
@@ -152,6 +155,75 @@ public class PokerTableController implements Initializable {
 		//		Example: Joe sits at Position 1
 		//		Joe should see the 'Sit' button in position 1 in the
 		//		'pressed in' state, and with 
+		Player playerOne = HubPokerTable.getPlayerByPosition(0);
+			if (playerOne != null){
+				lblPos1Name.setText(playerOne.getPlayerName());
+				int playerOneID = playerOne.getiPokerClientID();
+				this.btnPos1SitLeave.setVisible(false);
+				sendToAll(this);
+				if(true){
+					this.btnPos1SitLeave.setText("Leave");
+					this.btnPos2SitLeave.setVisible(false);
+					this.btnPos3SitLeave.setVisible(false);
+					this.btnPos4SitLeave.setVisible(false);
+					this.sendToOne(playerOneID, (Object)this);	
+				}
+			}
+			else{
+				lblPos1Name.setText("");
+		}
+			
+			Player playerTwo = HubPokerTable.getPlayerByPosition(1);
+			if (playerTwo != null){
+				lblPos2Name.setText(playerTwo.getPlayerName());
+				int playerTwoID = playerTwo.getiPokerClientID();
+				this.btnPos2SitLeave.setVisible(false);
+				sendToAll(this);
+				if(true){
+					this.btnPos2SitLeave.setText("Leave");
+					this.btnPos1SitLeave.setVisible(false);
+					this.btnPos3SitLeave.setVisible(false);
+					this.btnPos4SitLeave.setVisible(false);
+					this.sendToOne(playerTwoID, (Object)this);	
+				}
+			}
+			else{
+				lblPos2Name.setText("");
+		}
+			Player playerThree = HubPokerTable.getPlayerByPosition(2);
+			if (playerThree != null){
+				lblPos3Name.setText(playerThree.getPlayerName());
+				int playerThreeID = playerThree.getiPokerClientID();
+				this.btnPos3SitLeave.setVisible(false);
+				sendToAll(this);
+				if(true){
+					this.btnPos3SitLeave.setText("Leave");
+					this.btnPos2SitLeave.setVisible(false);
+					this.btnPos1SitLeave.setVisible(false);
+					this.btnPos4SitLeave.setVisible(false);
+					this.sendToOne(playerThreeID, (Object)this);	
+				}
+			}
+			else{
+				lblPos3Name.setText("");
+		}
+			Player playerFour = HubPokerTable.getPlayerByPosition(3);
+			if (playerFour != null){
+				lblPos4Name.setText(playerFour.getPlayerName());
+				int playerFourID = playerFour.getiPokerClientID();
+				this.btnPos4SitLeave.setVisible(false);
+				sendToAll(this);
+				if(true){
+					this.btnPos4SitLeave.setText("Leave");
+					this.btnPos2SitLeave.setVisible(false);
+					this.btnPos3SitLeave.setVisible(false);
+					this.btnPos1SitLeave.setVisible(false);
+					this.sendToOne(playerFourID, (Object)this);	
+				}
+			}
+			else{
+				lblPos1Name.setText("");
+		}
 	}
 
 	@FXML

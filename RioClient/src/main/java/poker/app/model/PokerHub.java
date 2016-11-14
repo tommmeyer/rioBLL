@@ -58,10 +58,9 @@ public class PokerHub extends Hub {
 
 		if (message instanceof Action) {
 			
-			//TODO: If the Action = StartGame, start the game...
-			//		Create an instance of GamePlay, set all the parameter
+			
 			if (message == eAction.StartGame){
-				GamePlay newGame = new GamePlay(mainApp.getGameRule(),mainApp.getPlayer().getPlayerID());
+				GamePlay newGame = new GamePlay(mainApp.getGameRule(),HubPokerTable.PickRandomPlayerAtTable().getPlayerID());
 			}
 			
 			else if (message == eAction.Sit){
